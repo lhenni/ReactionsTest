@@ -1,0 +1,68 @@
+import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
+
+reactions: sample2
+in reaction to changes in AllElementTypes
+execute actions in AllElementTypes
+import sample
+
+routine test() {
+	action {
+		call {
+			System.out.println("test in sample2");
+		}
+	}
+}
+
+routine test123() {
+	action {
+		call {
+			System.out.println("test123 in sample2");
+		}
+	}
+}
+
+routine sample::test() {
+	action {
+		call {
+			System.out.println("overridden sample::test in sample2");
+		}
+	}
+}
+
+// dummy reactions + routines:
+
+routine deleteRoot(minimal::Root rootElement) {
+	match {
+		val oldModel = retrieve asserted minimal::Root corresponding to rootElement
+	}
+	action {
+		delete oldModel
+	}
+}
+
+routine createRoot(minimal::Root rootElement) {
+	action {
+		val newRoot = create minimal::Root and initialize {
+			newRoot.id = rootElement.id;
+		}
+		add correspondence between newRoot and rootElement
+		call {
+			persistProjectRelative(rootElement, newRoot, "model/" + rootElement.id.replace("Source", "Target") + "." + rootElement.eResource.URI.fileExtension);
+			test();
+		}
+	}
+}
+
+reaction CreateRootTest {
+	after element minimal::Root created and inserted as root
+	call createRoot(newValue)
+}
+
+// overridden reaction
+reaction sample::DeleteRootTest {
+	after element minimal::Root deleted and removed as root
+	call {
+		test();
+		deleteRoot(oldValue)
+	}
+}
