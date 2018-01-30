@@ -1,0 +1,56 @@
+import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
+
+// extends Base, defines some additional reactions, overrides reactions and routines from Base,
+// makes use of transitively imported CommonFunctions, overrides routines from CommonFunctions
+reactions: Extended
+in reaction to changes in AllElementTypes
+execute actions in AllElementTypes
+
+import Base
+
+routine doSth() {
+	action {
+		call {
+			System.out.println("test");
+			CommonFunctions.func1("func1 called by Extended");
+		}
+	}
+}
+
+// additional reaction:
+reaction AdditionalCreateRootTest {
+	after element minimal::Root created and inserted as root
+	call createRoot(newValue)
+}
+
+// overridden reaction:
+reaction Base::CreateRootTest {
+	after element minimal::Root created and inserted as root
+	call {
+		createRoot(newValue)
+		doSth // added
+	}
+}
+
+// overridden routine:
+routine Base::createRoot(minimal::Root rootElement) {
+	action {
+		val newRoot = create minimal::Root and initialize {
+			newRoot.id = rootElement.id;
+		}
+		add correspondence between newRoot and rootElement
+		call {
+			persistProjectRelative(rootElement, newRoot, "model/" + rootElement.id.replace("Source", "Target") + "." + rootElement.eResource.URI.fileExtension);
+			doSth // added
+		}
+	}
+}
+
+// overridden transitive routine:
+routine Base.CommonFunctions::func1(String string) {
+	action {
+		call {
+			System.out.println("func1 overridden by Extended: " + string);
+		}
+	}
+}

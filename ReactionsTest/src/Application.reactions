@@ -1,0 +1,27 @@
+import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
+
+// imports Extended and Base2, combining their reactions and routines
+reactions: Application
+in reaction to changes in AllElementTypes
+execute actions in AllElementTypes
+
+import Extended
+import Base2
+
+routine someDummyRoutine() {
+	action {
+		call {
+			System.out.println("someDummyRoutine");
+
+		}
+	}
+}
+
+// overridden transitive reaction, also replaces the override reaction of Extended:
+reaction Base::CreateRootTest {
+	after element minimal::Root created and inserted as root
+	call {
+		createRoot(newValue)
+		someDummyRoutine() // added
+	}
+}

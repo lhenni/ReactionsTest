@@ -1,0 +1,30 @@
+import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
+
+// contains common functions used by different reactions segments in different contexts
+reactions: CommonFunctions
+in reaction to changes in AllElementTypes
+execute actions in AllElementTypes
+
+routine func1(String string) {
+	action {
+		call {
+			System.out.println("func1 " + string);
+		}
+	}
+}
+
+routine func2() {
+	action {
+		call {
+			System.out.println("func2");
+		}
+	}
+}
+
+routine func3() {
+	action {
+		call {
+			System.out.println("func2");
+		}
+	}
+}

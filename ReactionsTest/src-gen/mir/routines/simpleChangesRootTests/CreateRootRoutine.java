@@ -5,15 +5,12 @@ import java.io.IOException;
 import mir.routines.simpleChangesRootTests.RoutinesFacade;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Extension;
-import tools.vitruv.extensions.dslsruntime.reactions.AbstractReactionsExecutor;
 import tools.vitruv.extensions.dslsruntime.reactions.AbstractRepairRoutineRealization;
 import tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState;
 import tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving;
 
 @SuppressWarnings("all")
 public class CreateRootRoutine extends AbstractRepairRoutineRealization {
-  private RoutinesFacade actionsFacade;
-  
   private CreateRootRoutine.ActionUserExecution userExecution;
   
   private static class ActionUserExecution extends AbstractRepairRoutineRealization.UserExecution {
@@ -44,10 +41,9 @@ public class CreateRootRoutine extends AbstractRepairRoutineRealization {
     }
   }
   
-  public CreateRootRoutine(final AbstractReactionsExecutor executor, final ReactionExecutionState reactionExecutionState, final CallHierarchyHaving calledBy, final Root rootElement) {
-    super(executor, reactionExecutionState, calledBy);
+  public CreateRootRoutine(final RoutinesFacade routinesFacade, final ReactionExecutionState reactionExecutionState, final CallHierarchyHaving calledBy, final Root rootElement) {
+    super(routinesFacade, reactionExecutionState, calledBy);
     this.userExecution = new mir.routines.simpleChangesRootTests.CreateRootRoutine.ActionUserExecution(getExecutionState(), this);
-    this.actionsFacade = executor.createRoutinesFacade("simpleChangesRootTests", getExecutionState(), this);
     this.rootElement = rootElement;
   }
   
@@ -63,7 +59,7 @@ public class CreateRootRoutine extends AbstractRepairRoutineRealization {
     
     addCorrespondenceBetween(userExecution.getElement1(rootElement, newRoot), userExecution.getElement2(rootElement, newRoot), "");
     
-    userExecution.callRoutine1(rootElement, newRoot, actionsFacade);
+    userExecution.callRoutine1(rootElement, newRoot, this.getRoutinesFacade());
     
     postprocessElements();
     

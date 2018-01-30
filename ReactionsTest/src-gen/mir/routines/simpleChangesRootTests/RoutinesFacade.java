@@ -1,29 +1,38 @@
 package mir.routines.simpleChangesRootTests;
 
 import allElementTypes.Root;
-import tools.vitruv.extensions.dslsruntime.reactions.AbstractReactionsExecutor;
 import tools.vitruv.extensions.dslsruntime.reactions.AbstractRepairRoutinesFacade;
-import tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState;
-import tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving;
+import tools.vitruv.extensions.dslsruntime.reactions.RoutinesFacadeExecutionState;
+import tools.vitruv.extensions.dslsruntime.reactions.RoutinesFacadesProvider;
+import tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath;
 
 @SuppressWarnings("all")
 public class RoutinesFacade extends AbstractRepairRoutinesFacade {
-  public RoutinesFacade(final AbstractReactionsExecutor executor, final ReactionExecutionState reactionExecutionState, final CallHierarchyHaving calledBy) {
-    super(executor, reactionExecutionState, calledBy);
+  public RoutinesFacade(final RoutinesFacadesProvider routinesFacadesProvider, final ReactionsImportPath reactionsImportPath, final RoutinesFacadeExecutionState executionState) {
+    super(routinesFacadesProvider, reactionsImportPath, executionState);
   }
   
   public boolean createRoot(final Root rootElement) {
-    mir.routines.simpleChangesRootTests.CreateRootRoutine effect = new mir.routines.simpleChangesRootTests.CreateRootRoutine(this.executor, this.executionState, this.calledBy, rootElement);
-    return effect.applyRoutine();
+    mir.routines.simpleChangesRootTests.RoutinesFacade _routinesFacade = this._getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("simpleChangesRootTests"));
+    tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState _reactionExecutionState = this._getExecutionState().getReactionExecutionState();
+    tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving _caller = this._getExecutionState().getCaller();
+    mir.routines.simpleChangesRootTests.CreateRootRoutine routine = new mir.routines.simpleChangesRootTests.CreateRootRoutine(_routinesFacade, _reactionExecutionState, _caller, rootElement);
+    return routine.applyRoutine();
   }
   
   public boolean test() {
-    mir.routines.simpleChangesRootTests.TestRoutine effect = new mir.routines.simpleChangesRootTests.TestRoutine(this.executor, this.executionState, this.calledBy);
-    return effect.applyRoutine();
+    mir.routines.simpleChangesRootTests.RoutinesFacade _routinesFacade = this._getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("simpleChangesRootTests"));
+    tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState _reactionExecutionState = this._getExecutionState().getReactionExecutionState();
+    tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving _caller = this._getExecutionState().getCaller();
+    mir.routines.simpleChangesRootTests.TestRoutine routine = new mir.routines.simpleChangesRootTests.TestRoutine(_routinesFacade, _reactionExecutionState, _caller);
+    return routine.applyRoutine();
   }
   
   public boolean deleteRoot(final Root rootElement) {
-    mir.routines.simpleChangesRootTests.DeleteRootRoutine effect = new mir.routines.simpleChangesRootTests.DeleteRootRoutine(this.executor, this.executionState, this.calledBy, rootElement);
-    return effect.applyRoutine();
+    mir.routines.simpleChangesRootTests.RoutinesFacade _routinesFacade = this._getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("simpleChangesRootTests"));
+    tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState _reactionExecutionState = this._getExecutionState().getReactionExecutionState();
+    tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving _caller = this._getExecutionState().getCaller();
+    mir.routines.simpleChangesRootTests.DeleteRootRoutine routine = new mir.routines.simpleChangesRootTests.DeleteRootRoutine(_routinesFacade, _reactionExecutionState, _caller, rootElement);
+    return routine.applyRoutine();
   }
 }

@@ -19,13 +19,17 @@ public class AllElementTypesToAllElementTypesChangePropagationSpecification exte
 	
 	private final List<Supplier<? extends ChangePropagationSpecification>> executors = Arrays.asList(
 		// begin generated executor list
-		mir.reactions.reactionsAllElementTypesToAllElementTypes.sample3.ExecutorAllElementTypesToAllElementTypes::new,
-		
 		mir.reactions.reactionsAllElementTypesToAllElementTypes.simpleChangesRootTests.ExecutorAllElementTypesToAllElementTypes::new,
 		
-		mir.reactions.reactionsAllElementTypesToAllElementTypes.sample2.ExecutorAllElementTypesToAllElementTypes::new,
+		mir.reactions.reactionsAllElementTypesToAllElementTypes.base2.ExecutorAllElementTypesToAllElementTypes::new,
 		
-		mir.reactions.reactionsAllElementTypesToAllElementTypes.sample.ExecutorAllElementTypesToAllElementTypes::new
+		mir.reactions.reactionsAllElementTypesToAllElementTypes.extended.ExecutorAllElementTypesToAllElementTypes::new,
+		
+		mir.reactions.reactionsAllElementTypesToAllElementTypes.commonFunctions.ExecutorAllElementTypesToAllElementTypes::new,
+		
+		mir.reactions.reactionsAllElementTypesToAllElementTypes.application.ExecutorAllElementTypesToAllElementTypes::new,
+		
+		mir.reactions.reactionsAllElementTypesToAllElementTypes.base.ExecutorAllElementTypesToAllElementTypes::new
 		// end generated executor list
 	);
 	

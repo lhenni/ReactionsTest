@@ -4,15 +4,12 @@ import allElementTypes.Root;
 import java.io.IOException;
 import mir.routines.simpleChangesRootTests.RoutinesFacade;
 import org.eclipse.emf.ecore.EObject;
-import tools.vitruv.extensions.dslsruntime.reactions.AbstractReactionsExecutor;
 import tools.vitruv.extensions.dslsruntime.reactions.AbstractRepairRoutineRealization;
 import tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState;
 import tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving;
 
 @SuppressWarnings("all")
 public class DeleteRootRoutine extends AbstractRepairRoutineRealization {
-  private RoutinesFacade actionsFacade;
-  
   private DeleteRootRoutine.ActionUserExecution userExecution;
   
   private static class ActionUserExecution extends AbstractRepairRoutineRealization.UserExecution {
@@ -29,10 +26,9 @@ public class DeleteRootRoutine extends AbstractRepairRoutineRealization {
     }
   }
   
-  public DeleteRootRoutine(final AbstractReactionsExecutor executor, final ReactionExecutionState reactionExecutionState, final CallHierarchyHaving calledBy, final Root rootElement) {
-    super(executor, reactionExecutionState, calledBy);
+  public DeleteRootRoutine(final RoutinesFacade routinesFacade, final ReactionExecutionState reactionExecutionState, final CallHierarchyHaving calledBy, final Root rootElement) {
+    super(routinesFacade, reactionExecutionState, calledBy);
     this.userExecution = new mir.routines.simpleChangesRootTests.DeleteRootRoutine.ActionUserExecution(getExecutionState(), this);
-    this.actionsFacade = executor.createRoutinesFacade("simpleChangesRootTests", getExecutionState(), this);
     this.rootElement = rootElement;
   }
   

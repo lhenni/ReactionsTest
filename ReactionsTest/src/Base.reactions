@@ -1,0 +1,49 @@
+import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
+
+// contains some reactions, makes use of CommonFunctions
+reactions: Base
+in reaction to changes in AllElementTypes
+execute actions in AllElementTypes
+
+import routines CommonFunctions using qualified names
+
+routine test() {
+	action {
+		call {
+			System.out.println("test");
+			CommonFunctions.func1("calling func1 from Base");
+		}
+	}
+}
+
+routine test2() {
+	action {
+		call {
+			System.out.println("test2");
+		}
+	}
+}
+
+// dummy reactions + routines:
+
+routine createRoot(minimal::Root rootElement) {
+	action {
+		val newRoot = create minimal::Root and initialize {
+			newRoot.id = rootElement.id;
+		}
+		add correspondence between newRoot and rootElement
+		call {
+			persistProjectRelative(rootElement, newRoot, "model/" + rootElement.id.replace("Source", "Target") + "." + rootElement.eResource.URI.fileExtension);
+		}
+	}
+}
+
+reaction CreateRootTest {
+	after element minimal::Root created and inserted as root
+	call createRoot(newValue)
+}
+
+reaction CreateRootTest2 {
+	after element minimal::Root created and inserted as root
+	call test2()
+}

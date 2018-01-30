@@ -1,0 +1,42 @@
+import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
+
+// contains some reactions, makes use of CommonFunctions
+reactions: Base2
+in reaction to changes in AllElementTypes
+execute actions in AllElementTypes
+
+import routines CommonFunctions using qualified names
+
+routine baseTest() {
+	action {
+		call {
+			System.out.println("test");
+			CommonFunctions.func1("calling func1 from Base2");
+			CommonFunctions.func2();
+		}
+	}
+}
+
+routine baseTest2() {
+	action {
+		call {
+			System.out.println("test2");
+		}
+	}
+}
+
+// dummy reactions + routines:
+
+routine deleteRoot(minimal::Root rootElement) {
+	match {
+		val oldModel = retrieve asserted minimal::Root corresponding to rootElement
+	}
+	action {
+		delete oldModel
+	}
+}
+
+reaction DeleteRootTest {
+	after element minimal::Root deleted and removed as root
+	call deleteRoot(oldValue)
+}

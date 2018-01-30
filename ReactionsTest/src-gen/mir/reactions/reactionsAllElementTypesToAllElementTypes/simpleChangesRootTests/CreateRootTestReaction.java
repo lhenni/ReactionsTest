@@ -4,7 +4,6 @@ import allElementTypes.Root;
 import mir.routines.simpleChangesRootTests.RoutinesFacade;
 import org.eclipse.xtext.xbase.lib.Extension;
 import tools.vitruv.extensions.dslsruntime.reactions.AbstractReactionRealization;
-import tools.vitruv.extensions.dslsruntime.reactions.AbstractReactionsExecutor;
 import tools.vitruv.extensions.dslsruntime.reactions.AbstractRepairRoutineRealization;
 import tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState;
 import tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving;
@@ -25,8 +24,8 @@ public class CreateRootTestReaction extends AbstractReactionRealization {
   
   private int currentlyMatchedChange;
   
-  public CreateRootTestReaction(final AbstractReactionsExecutor executor) {
-    super(executor);
+  public CreateRootTestReaction(final RoutinesFacade routinesFacade) {
+    super(routinesFacade);
   }
   
   public void executeReaction(final EChange change) {
@@ -38,9 +37,8 @@ public class CreateRootTestReaction extends AbstractReactionRealization {
     				
     getLogger().trace("Passed complete precondition check of Reaction " + this.getClass().getName());
     				
-    mir.routines.simpleChangesRootTests.RoutinesFacade routinesFacade = executor.createRoutinesFacade("simpleChangesRootTests", this.executionState, this);
     mir.reactions.reactionsAllElementTypesToAllElementTypes.simpleChangesRootTests.CreateRootTestReaction.ActionUserExecution userExecution = new mir.reactions.reactionsAllElementTypesToAllElementTypes.simpleChangesRootTests.CreateRootTestReaction.ActionUserExecution(this.executionState, this);
-    userExecution.callRoutine1(insertChange, newValue, index, routinesFacade);
+    userExecution.callRoutine1(insertChange, newValue, index, this.getRoutinesFacade());
     
     resetChanges();
   }
