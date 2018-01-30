@@ -1,3 +1,5 @@
+import java.util.List
+
 import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
 
 // extends Base, defines some additional reactions, overrides reactions and routines from Base,
@@ -13,6 +15,14 @@ routine doSth() {
 		call {
 			System.out.println("test");
 			CommonFunctions.func1("func1 called by Extended");
+		}
+	}
+}
+
+routine Base::test3(plain List<String> as s) {
+	action {
+		call {
+			System.out.println("overridden test3 with parameter " + s);
 		}
 	}
 }
