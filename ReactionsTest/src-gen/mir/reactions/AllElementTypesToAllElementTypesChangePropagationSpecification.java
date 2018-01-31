@@ -3,7 +3,7 @@ package mir.reactions;
 import tools.vitruv.framework.change.processing.impl.CompositeDecomposingChangePropagationSpecification;
 import java.util.List;
 import java.util.function.Supplier;
-import tools.vitruv.framework.testutils.domains.AllElementTypesDomainProvider;
+import tools.vitruv.testutils.domains.AllElementTypesDomainProvider;
 import tools.vitruv.framework.change.processing.ChangePropagationSpecification;
 import java.util.Arrays;
 
