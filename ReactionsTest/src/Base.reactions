@@ -2,18 +2,18 @@ import java.util.List
 
 import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
 
-// contains some reactions, makes use of CommonFunctions
-reactions: Base
+// contains some reactions, makes use of commonFunctions
+reactions: base
 in reaction to changes in AllElementTypes
 execute actions in AllElementTypes
 
-import routines CommonFunctions using qualified names
+import routines commonFunctions using qualified names
 
 routine test() {
 	action {
 		call {
 			System.out.println("test");
-			CommonFunctions.func1("calling func1 from Base");
+			commonFunctions.func1("calling func1 from Base");
 		}
 	}
 }

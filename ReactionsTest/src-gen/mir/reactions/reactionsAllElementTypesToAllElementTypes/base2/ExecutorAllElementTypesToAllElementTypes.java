@@ -15,6 +15,6 @@ public class ExecutorAllElementTypesToAllElementTypes extends AbstractReactionsE
   }
   
   protected void setup() {
-    this.addReaction(new mir.reactions.reactionsAllElementTypesToAllElementTypes.base2.DeleteRootTestReaction(this.getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("Base2"))));
+    this.addReaction(new mir.reactions.reactionsAllElementTypesToAllElementTypes.base2.DeleteRootTestReaction(this.getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("base2"))));
   }
 }

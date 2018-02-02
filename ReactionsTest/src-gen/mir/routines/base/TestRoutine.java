@@ -18,7 +18,7 @@ public class TestRoutine extends AbstractRepairRoutineRealization {
     
     public void callRoutine1(@Extension final RoutinesFacade _routinesFacade) {
       System.out.println("test");
-      _routinesFacade.CommonFunctions.func1("calling func1 from Base");
+      _routinesFacade.commonFunctions.func1("calling func1 from Base");
     }
   }
   

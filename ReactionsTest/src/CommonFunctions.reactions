@@ -1,7 +1,7 @@
 import "http://tools.vitruv.tests.metamodels.allElementTypes" as minimal
 
 // contains common functions used by different reactions segments in different contexts
-reactions: CommonFunctions
+reactions: commonFunctions
 in reaction to changes in AllElementTypes
 execute actions in AllElementTypes
 

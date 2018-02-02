@@ -9,13 +9,13 @@ import tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPa
 public class RoutinesFacadesProvider extends AbstractRoutinesFacadesProvider {
   public AbstractRepairRoutinesFacade createRoutinesFacade(final ReactionsImportPath reactionsImportPath, final RoutinesFacadeExecutionState sharedExecutionState) {
     switch(reactionsImportPath.getPathString()) {
-    	case "Extended": {
+    	case "extended": {
     		return new mir.routines.extended.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
-    	case "Extended.Base": {
+    	case "extended.base": {
     		return new mir.routines.extended.base.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
-    	case "Extended.Base.CommonFunctions": {
+    	case "extended.base.commonFunctions": {
     		return new mir.routines.extended.base.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	default: {

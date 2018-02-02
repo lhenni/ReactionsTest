@@ -15,8 +15,8 @@ public class ExecutorAllElementTypesToAllElementTypes extends AbstractReactionsE
   }
   
   protected void setup() {
-    this.addReaction(new mir.reactions.reactionsAllElementTypesToAllElementTypes.base.CreateRootTest2Reaction(this.getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("Extended.Base"))));
-    this.addReaction(new mir.reactions.reactionsAllElementTypesToAllElementTypes.extended.AdditionalCreateRootTestReaction(this.getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("Extended"))));
-    this.addReaction(new mir.reactions.reactionsAllElementTypesToAllElementTypes.extended.base.CreateRootTestReaction(this.getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("Extended"))));
+    this.addReaction(new mir.reactions.reactionsAllElementTypesToAllElementTypes.base.CreateRootTest2Reaction(this.getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("extended.base"))));
+    this.addReaction(new mir.reactions.reactionsAllElementTypesToAllElementTypes.extended.AdditionalCreateRootTestReaction(this.getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("extended"))));
+    this.addReaction(new mir.reactions.reactionsAllElementTypesToAllElementTypes.extended.base.CreateRootTestReaction(this.getRoutinesFacadesProvider().getRoutinesFacade(tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath.fromPathString("extended"))));
   }
 }

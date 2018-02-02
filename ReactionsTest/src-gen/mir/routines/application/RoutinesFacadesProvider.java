@@ -9,22 +9,22 @@ import tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPa
 public class RoutinesFacadesProvider extends AbstractRoutinesFacadesProvider {
   public AbstractRepairRoutinesFacade createRoutinesFacade(final ReactionsImportPath reactionsImportPath, final RoutinesFacadeExecutionState sharedExecutionState) {
     switch(reactionsImportPath.getPathString()) {
-    	case "Application": {
+    	case "application": {
     		return new mir.routines.application.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
-    	case "Application.Extended": {
+    	case "application.extended": {
     		return new mir.routines.extended.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
-    	case "Application.Extended.Base": {
+    	case "application.extended.base": {
     		return new mir.routines.extended.base.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
-    	case "Application.Extended.Base.CommonFunctions": {
-    		return new mir.routines.extended.base.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
+    	case "application.extended.base.commonFunctions": {
+    		return new mir.routines.application.extended.base.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
-    	case "Application.Base2": {
+    	case "application.base2": {
     		return new mir.routines.base2.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
-    	case "Application.Base2.CommonFunctions": {
+    	case "application.base2.commonFunctions": {
     		return new mir.routines.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	default: {

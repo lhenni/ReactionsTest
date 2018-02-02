@@ -1,4 +1,4 @@
-package mir.routines.extended;
+package mir.routines.extended.base.commonFunctions;
 
 import java.io.IOException;
 import mir.routines.extended.RoutinesFacade;
@@ -8,8 +8,8 @@ import tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState;
 import tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving;
 
 @SuppressWarnings("all")
-public class DoSthRoutine extends AbstractRepairRoutineRealization {
-  private DoSthRoutine.ActionUserExecution userExecution;
+public class Func3Routine extends AbstractRepairRoutineRealization {
+  private Func3Routine.ActionUserExecution userExecution;
   
   private static class ActionUserExecution extends AbstractRepairRoutineRealization.UserExecution {
     public ActionUserExecution(final ReactionExecutionState reactionExecutionState, final CallHierarchyHaving calledBy) {
@@ -17,18 +17,16 @@ public class DoSthRoutine extends AbstractRepairRoutineRealization {
     }
     
     public void callRoutine1(@Extension final RoutinesFacade _routinesFacade) {
-      System.out.println("test");
-      _routinesFacade.commonFunctions.func1("func1 called by Extended");
     }
   }
   
-  public DoSthRoutine(final RoutinesFacade routinesFacade, final ReactionExecutionState reactionExecutionState, final CallHierarchyHaving calledBy) {
+  public Func3Routine(final RoutinesFacade routinesFacade, final ReactionExecutionState reactionExecutionState, final CallHierarchyHaving calledBy) {
     super(routinesFacade, reactionExecutionState, calledBy);
-    this.userExecution = new mir.routines.extended.DoSthRoutine.ActionUserExecution(getExecutionState(), this);
+    this.userExecution = new mir.routines.extended.base.commonFunctions.Func3Routine.ActionUserExecution(getExecutionState(), this);
   }
   
   protected boolean executeRoutine() throws IOException {
-    getLogger().debug("Called routine DoSthRoutine with input:");
+    getLogger().debug("Called routine Func3Routine with input:");
     
     userExecution.callRoutine1(this.getRoutinesFacade());
     
