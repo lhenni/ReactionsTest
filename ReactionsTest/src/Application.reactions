@@ -12,15 +12,13 @@ routine someDummyRoutine() {
 	action {
 		call {
 			System.out.println("someDummyRoutine");
-
 		}
 	}
 }
 
-routine extended.base.commonFunctions ::func3() {
+routine extended.base.commonFunctions::func3() {
 	action {
 		call {
-
 		}
 	}
 }

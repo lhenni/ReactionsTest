@@ -59,7 +59,6 @@ routine base::createRoot(minimal::Root rootElement) {
 routine base.commonFunctions::func3() {
 	action {
 		call {
-
 		}
 	}
 }
@@ -69,6 +68,22 @@ routine base.commonFunctions::func1(String string) {
 	action {
 		call {
 			System.out.println("func1 overridden by Extended: " + string);
+		}
+	}
+}
+
+// importing other segment in same file
+reactions: test
+in reaction to changes in AllElementTypes
+execute actions in AllElementTypes
+
+import extended using qualified names
+
+routine doSth() {
+	action {
+		call {
+			System.out.println("test");
+			extended.commonFunctions.func1("func1 called by Extended");
 		}
 	}
 }

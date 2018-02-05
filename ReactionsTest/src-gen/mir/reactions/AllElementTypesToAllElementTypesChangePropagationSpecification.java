@@ -25,6 +25,8 @@ public class AllElementTypesToAllElementTypesChangePropagationSpecification exte
 		
 		mir.reactions.reactionsAllElementTypesToAllElementTypes.extended.ExecutorAllElementTypesToAllElementTypes::new,
 		
+		mir.reactions.reactionsAllElementTypesToAllElementTypes.test.ExecutorAllElementTypesToAllElementTypes::new,
+		
 		mir.reactions.reactionsAllElementTypesToAllElementTypes.commonFunctions.ExecutorAllElementTypesToAllElementTypes::new,
 		
 		mir.reactions.reactionsAllElementTypesToAllElementTypes.application.ExecutorAllElementTypesToAllElementTypes::new,
