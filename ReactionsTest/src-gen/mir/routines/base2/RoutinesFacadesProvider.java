@@ -10,10 +10,10 @@ public class RoutinesFacadesProvider extends AbstractRoutinesFacadesProvider {
   public AbstractRepairRoutinesFacade createRoutinesFacade(final ReactionsImportPath reactionsImportPath, final RoutinesFacadeExecutionState sharedExecutionState) {
     switch(reactionsImportPath.getPathString()) {
     	case "base2": {
-    		return new mir.routines.base2.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
+    		return new mir.routines.base2.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
     	}
     	case "base2.commonFunctions": {
-    		return new mir.routines.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
+    		return new mir.routines.commonFunctions.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
     	}
     	default: {
     		return null;
