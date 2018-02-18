@@ -72,8 +72,10 @@ routine base.commonFunctions::func1(String string) {
 	}
 }
 
+
+
 // importing other segment in same file
-reactions: test
+reactions: subSegment
 in reaction to changes in AllElementTypes
 execute actions in AllElementTypes
 
