@@ -10,25 +10,25 @@ public class RoutinesFacadesProvider extends AbstractRoutinesFacadesProvider {
   public AbstractRepairRoutinesFacade createRoutinesFacade(final ReactionsImportPath reactionsImportPath, final RoutinesFacadeExecutionState sharedExecutionState) {
     switch(reactionsImportPath.getPathString()) {
     	case "application": {
-    		return new mir.routines.application.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.application.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	case "application.extended": {
-    		return new mir.routines.extended.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.extended.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	case "application.extended.base": {
-    		return new mir.routines.extended.base.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.extended.base.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	case "application.extended.base.commonFunctions": {
-    		return new mir.routines.application.extended.base.commonFunctions.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.application.extended.base.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	case "application.base2": {
-    		return new mir.routines.base2.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.base2.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	case "application.base2.commonFunctions": {
-    		return new mir.routines.commonFunctions.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	default: {
-    		return null;
+    		throw new IllegalArgumentException("Unexpected import path: " + reactionsImportPath.getPathString());
     	}
     }
   }

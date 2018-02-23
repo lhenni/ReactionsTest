@@ -10,19 +10,19 @@ public class RoutinesFacadesProvider extends AbstractRoutinesFacadesProvider {
   public AbstractRepairRoutinesFacade createRoutinesFacade(final ReactionsImportPath reactionsImportPath, final RoutinesFacadeExecutionState sharedExecutionState) {
     switch(reactionsImportPath.getPathString()) {
     	case "subSegment": {
-    		return new mir.routines.subSegment.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.subSegment.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	case "subSegment.extended": {
-    		return new mir.routines.extended.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.extended.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	case "subSegment.extended.base": {
-    		return new mir.routines.extended.base.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.extended.base.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	case "subSegment.extended.base.commonFunctions": {
-    		return new mir.routines.extended.base.commonFunctions.RoutinesFacade(this, reactionsImportPath.getParent(), sharedExecutionState);
+    		return new mir.routines.extended.base.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
     	default: {
-    		return null;
+    		throw new IllegalArgumentException("Unexpected import path: " + reactionsImportPath.getPathString());
     	}
     }
   }
