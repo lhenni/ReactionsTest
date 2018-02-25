@@ -5,14 +5,14 @@ reactions: base2
 in reaction to changes in AllElementTypes
 execute actions in AllElementTypes
 
-import routines commonFunctions using qualified names
+// import routines commonFunctions using qualified names
 
 routine baseTest() {
 	action {
 		call {
 			System.out.println("test");
-			commonFunctions.func1("calling func1 from Base2");
-			commonFunctions.func2();
+			//commonFunctions.func1("calling func1 from Base2");
+			//commonFunctions.func2();
 		}
 	}
 }

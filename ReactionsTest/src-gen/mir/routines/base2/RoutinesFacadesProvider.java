@@ -12,9 +12,6 @@ public class RoutinesFacadesProvider extends AbstractRoutinesFacadesProvider {
     	case "base2": {
     		return new mir.routines.base2.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
     	}
-    	case "base2.commonFunctions": {
-    		return new mir.routines.commonFunctions.RoutinesFacade(this, reactionsImportPath, sharedExecutionState);
-    	}
     	default: {
     		throw new IllegalArgumentException("Unexpected import path: " + reactionsImportPath.getPathString());
     	}

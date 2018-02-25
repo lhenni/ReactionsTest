@@ -1,7 +1,10 @@
 package mir.routines.application.extended.base.commonFunctions;
 
+import mir.routines.application.extended.base.commonFunctions.Func3Routine;
+import tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState;
 import tools.vitruv.extensions.dslsruntime.reactions.RoutinesFacadeExecutionState;
 import tools.vitruv.extensions.dslsruntime.reactions.RoutinesFacadesProvider;
+import tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving;
 import tools.vitruv.extensions.dslsruntime.reactions.structure.ReactionsImportPath;
 
 @SuppressWarnings("all")
@@ -12,9 +15,9 @@ public class RoutinesFacade extends mir.routines.extended.base.commonFunctions.R
   
   public boolean func3() {
     mir.routines.application.RoutinesFacade _routinesFacade = this._getRoutinesFacadesProvider().getRoutinesFacade(this._getReactionsImportPath().subPathTo("application"));
-    tools.vitruv.extensions.dslsruntime.reactions.ReactionExecutionState _reactionExecutionState = this._getExecutionState().getReactionExecutionState();
-    tools.vitruv.extensions.dslsruntime.reactions.structure.CallHierarchyHaving _caller = this._getExecutionState().getCaller();
-    mir.routines.application.extended.base.commonFunctions.Func3Routine routine = new mir.routines.application.extended.base.commonFunctions.Func3Routine(_routinesFacade, _reactionExecutionState, _caller);
+    ReactionExecutionState _reactionExecutionState = this._getExecutionState().getReactionExecutionState();
+    CallHierarchyHaving _caller = this._getExecutionState().getCaller();
+    Func3Routine routine = new Func3Routine(_routinesFacade, _reactionExecutionState, _caller);
     return routine.applyRoutine();
   }
 }
